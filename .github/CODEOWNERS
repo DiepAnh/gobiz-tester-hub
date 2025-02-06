@@ -1,0 +1,5 @@
+# Code Owner của toàn bộ project: @DiepAnh
+@DiepAnh @kiennx
+
+# Code Owner của features, chú ý sẽ overwrite toàn bộ quyền project
+/src/test/resources/features @kiennx @DiepAnh

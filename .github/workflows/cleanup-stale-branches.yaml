@@ -1,0 +1,16 @@
+name: Xóa nhánh đã cũ
+on:
+  workflow_dispatch:
+
+jobs:
+  cleanup-stale-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: fpicalausa/remove-stale-branches@v1.5.8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          exempt-branches-regex: ^(main|master|feature_writing)$
+          operations-per-run: 50
+          days-before-branch-delete: 0
+          days-before-branch-stale: 180

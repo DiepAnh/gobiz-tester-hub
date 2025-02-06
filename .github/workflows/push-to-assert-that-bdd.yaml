@@ -1,0 +1,12 @@
+name: Đẩy lên AssertThat BDD trên Jira
+
+on:
+  push:
+    branches:
+      - feature_writing
+      - us/*
+
+jobs:
+  update_features:
+    uses: gobiz-metaverse/gobiz-tester-ponos/.github/workflows/push-to-assert-that-bdd.yaml@main
+    secrets: inherit

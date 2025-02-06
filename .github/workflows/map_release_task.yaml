@@ -1,0 +1,21 @@
+name: Map SC to release task
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+          required: true
+          description: Nhập release task (ví dụ FBU-111)
+          default: FBU-111
+      jira_issue_keys:
+          required: true
+          description: Nhập danh sách issue key ngăn cách bởi dấu cách (ví dụ FBU-111 FBU-222 FBU-333 FBU-444)
+          default: FBU-111 FBU-222 FBU-333 FBU-444
+
+jobs:
+  update_features:
+    uses: gobiz-metaverse/gobiz-tester-ponos/.github/workflows/tag-release-task.yaml@main
+    secrets: inherit
+    with:
+      release_tag: ${{ github.event.inputs.release_tag }}
+      jira_issue_keys: ${{ github.event.inputs.jira_issue_keys }}
